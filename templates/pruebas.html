@@ -1,0 +1,64 @@
+
+<ul class="nav nav-list">
+    <li class="active">
+        <a href="{% url 'main' %}">
+            <i class="menu-icon fa fa-tachometer"></i>
+            <span class="menu-text"> Dashboard </span>
+        </a>
+        <b class="arrow"></b>
+    </li>
+
+
+    {% for key, value in datos2.items %}
+    <li id="">
+        <a href="#" class="dropdown-toggle">
+            {% for ic in value.icono %}
+                <i class="{{ic}}"></i>
+            {% endfor %}
+
+            <span class="menu-text">
+                {{ key }}
+            </span>
+            <b class="arrow fa fa-angle-down"></b>
+        </a>
+
+        <ul class="submenu">
+            {% for valor in value.submenu %}
+                {% if valor != 'No' %}
+                    <li class="">
+                        {% for  valeria,datos in datos4.items %}
+                            {% if valeria == valor %}
+                                <a href="http://127.0.0.1:8000/{{datos}}/">
+                                    <!-- <p> {{datos}} </p> -->
+                            {% endif %}
+                        {% endfor %}
+
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            {{ valor }}
+                        </a>
+                        <b class="arrow"></b>
+                            
+
+                    </li>
+                    {% else %}
+                    <li class="">
+                        {% for  valeria,datos in datos4.items %}
+                            {% if valeria == key %}
+                                <a href="http://127.0.0.1:8000/{{datos}}/">
+                                    <!-- <p> {{datos}} </p> -->
+                            {% endif %}
+                        {% endfor %}
+                        
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            {{ key }}
+                        </a>
+                        <b class="arrow"></b>
+                            
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </li>
+        
+    {% endfor %}
+</ul>

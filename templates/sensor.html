@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sensor</title>
+	{% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" crossorigin="anonymous" />
+	<link rel="stylesheet" href="{% static 'css/main.css' %}" />
+
+	
+	
+</head>
+<body>
+	
+
+	<nav class="navbar navbar-light bg-light">
+		<span class="navbar-brand mb-0 h1">Iot-Innovaciones</span>
+
+	</nav>
+
+	<div class="container">
+	  <div class="row">
+         
+		<div class="col-sm">
+		 <!-- Highcharts display -->
+		 <div class="border" id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+		 <!-- Table data -->
+		 <h2 class="pt-4">Detalle de porcentaje del sensor</h2>
+		 <p class="text-danger">Datos de los porcentages de sensores.</p>
+		 <table class="table table-striped table-sm">
+				<thead>
+				  <tr>
+					<th>Fecha</th>
+					<th>Porcentaje</th>
+				  </tr>
+				</thead>
+				<tbody>
+				  {% for dato in datos %}
+				  	{% if dato.porcetage < 30 %}
+					<tr class="bg-danger">
+					{% else %}
+					<tr>
+					{% endif %}
+					  <td>{{ dato.fecha }}</td>
+					  <td>{{ dato.porcetage }} %</td>			  
+					</tr>
+				  {% endfor %}
+				</tbody>
+			  </table>
+		</div>
+		<div id="container"></div>
+		<script src="https://code.highcharts.com/highcharts.src.js"></script>
+		<script>
+		Highcharts.chart('container', {
+			chart: {
+				type: 'line'
+			},
+			title: {
+				text: 'Sensor porcentaje inventario'
+			},
+			xAxis: {
+				categories: [
+					{% for dato in datos %}'{{ dato.fecha }}'{% if not forloop.last %}, {% endif %}{% endfor %}
+				]
+			},
+			series: [{
+				name: 'Porcentaje',
+				data: [
+					{% for dato in datos %}{{ dato.porcetage }}{% if not forloop.last %}, {% endif %}{% endfor %}
+				],
+				color: '#33AAD7'
+			}]
+		});
+		</script>
+	</div>
+	
+
+	
+</body>
+<script type="text/javascript" >
+	function actualizar(){location.reload(true);}
+//Función para actualizar cada 4 segundos(4000 milisegundos)
+  setInterval("actualizar()",20000);
+
+
+</script>
+</html>

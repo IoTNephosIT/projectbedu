@@ -1,0 +1,27 @@
+{% extends 'base/base.html' %}
+{% block content %}
+{% if perms.loginapp.pueden_ver_dispositivos %}
+<div class="container">
+    <div class="row">
+      <!-- <div class="col-sm">
+      </div> -->
+      <div class="col-sm">
+          <div class="card" style="width: 18rem;">
+            <div class="card-header">
+              Lista de dispositivos
+            </div>
+            <ul class="list-group list-group-flush">
+                {% for dispositivo in dispositivos %}
+                    <li class="list-group-item"><a href = "/disp/{{ dispositivo.disp }}"> {{ dispositivo.disp }} </a></li>
+              {% endfor %}
+            </ul>
+          </div>
+      </div>
+      <!-- <div class="col-sm">
+      </div> -->
+    </div>
+  </div>
+{% else %}
+<p>No tiene permisos para ver dispositivos</p>
+{% endif %}
+{% endblock %}

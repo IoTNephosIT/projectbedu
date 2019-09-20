@@ -1,0 +1,414 @@
+{% extends 'base/base.html' %}
+{% block content %}	
+{% if perms.loginapp.pueden_ver_reportes %}	
+	<div class="row">
+			<div class="col-sm-3">
+				<div class="widget-box transparent">
+					<div class="widget-header widget-header-flat">
+						<h4 class="widget-title lighter">
+							<i class="ace-icon fa fa-tachometer"></i>
+							<a href="{% url 'sensor_detail'  DeviceId '01' %}">Sensor1</a>
+						</h4>
+
+						<div class="widget-toolbar">
+							<a href="#" data-action="collapse">
+								<i class="ace-icon fa fa-chevron-up"></i>
+							</a>
+						</div>
+					</div>
+
+					<div class="widget-body">
+						<div class="widget-main no-padding">
+								   
+									<ul class="list-group list-group-flush">
+									
+										{% for dato in datos %}
+										{% if dato.Sensor == '01' %}
+												<div class="container">
+												<input type="text" value="{{ dato.porcetage }}" id="sensor1" name="sensor1" onload="loadPorcetage(this.value,this)" class="dial">
+											</div>
+												<li class="list-group-item"><p>Porcentaje: {{ dato.porcetage }}</p></li>
+												<li class="list-group-item"><p>{{ dato.fecha }}</p></li>
+											
+											{% endif %}
+									{% endfor %}
+									</ul>
+						</div><!-- /.widget-main -->
+					</div><!-- /.widget-body -->
+				</div><!-- /.widget-box -->
+			</div><!-- /.col -->
+			<div class="col-sm-3">
+					<div class="widget-box transparent">
+						<div class="widget-header widget-header-flat">
+							<h4 class="widget-title lighter">
+								<i class="ace-icon fa fa-tachometer"></i>
+								<a href="{% url 'sensor_detail'  DeviceId '02' %}">Sensor2</a>
+							</h4>
+		
+							<div class="widget-toolbar">
+								<a href="#" data-action="collapse">
+									<i class="ace-icon fa fa-chevron-up"></i>
+								</a>
+							</div>
+						</div>
+		
+						<div class="widget-body">
+							<div class="widget-main no-padding">
+									   
+										<ul class="list-group list-group-flush">
+										
+											{% for dato in datos %}
+											{% if dato.Sensor == '02' %}
+													<div class="container">
+													<input type="text" value="{{ dato.porcetage }}" id="sensor2" name="sensor2" class="dial">
+												</div>
+													<li class="list-group-item"><p>Porcentaje: {{ dato.porcetage }}</p></li>
+													<li class="list-group-item"><p>{{ dato.fecha }}</p></li>
+												
+												{% endif %}
+										{% endfor %}
+										</ul>
+							</div><!-- /.widget-main -->
+						</div><!-- /.widget-body -->
+					</div><!-- /.widget-box -->
+			</div><!-- /.col -->
+			<div class="col-sm-3">
+					<div class="widget-box transparent">
+						<div class="widget-header widget-header-flat">
+							<h4 class="widget-title lighter">
+								<i class="ace-icon fa fa-tachometer"></i>
+								<a href="{% url 'sensor_detail'  DeviceId '03' %}">Sensor3</a>
+							</h4>
+		
+							<div class="widget-toolbar">
+								<a href="#" data-action="collapse">
+									<i class="ace-icon fa fa-chevron-up"></i>
+								</a>
+							</div>
+						</div>
+		
+						<div class="widget-body">
+							<div class="widget-main no-padding">
+									   
+										<ul class="list-group list-group-flush">
+										
+											{% for dato in datos %}
+											{% if dato.Sensor == '03' %}
+													<div class="container">
+													<input type="text" value="{{ dato.porcetage }}" id="sensor3" name="sensor3" class="dial">
+												</div>
+													<li class="list-group-item"><p>Porcentaje: {{ dato.porcetage }}</p></li>
+													<li class="list-group-item"><p>{{ dato.fecha }}</p></li>
+												
+												{% endif %}
+										{% endfor %}
+										</ul>
+							</div><!-- /.widget-main -->
+						</div><!-- /.widget-body -->
+					</div><!-- /.widget-box -->
+			</div><!-- /.col -->
+			<div class="col-sm-3">
+					<div class="widget-box transparent">
+						<div class="widget-header widget-header-flat">
+							<h4 class="widget-title lighter">
+								<i class="ace-icon fa fa-tachometer"></i>
+								<a href="{% url 'sensor_detail'  DeviceId '04' %}">Sensor4</a>
+							</h4>
+		
+							<div class="widget-toolbar">
+								<a href="#" data-action="collapse">
+									<i class="ace-icon fa fa-chevron-up"></i>
+								</a>
+							</div>
+						</div>
+		
+						<div class="widget-body">
+							<div class="widget-main no-padding">
+									   
+										<ul class="list-group list-group-flush">
+										
+											{% for dato in datos %}
+											{% if dato.Sensor == '04' %}
+													<div class="container">
+													<input type="text" value="{{ dato.porcetage }}" id="sensor4" name="sensor4" class="dial">
+												</div>
+													<li class="list-group-item"><p>Porcentaje: {{ dato.porcetage }}</p></li>
+													<li class="list-group-item"><p>{{ dato.fecha }}</p></li>
+												
+												{% endif %}
+										{% endfor %}
+										</ul>
+							</div><!-- /.widget-main -->
+						</div><!-- /.widget-body -->
+					</div><!-- /.widget-box -->
+			</div><!-- /.col -->
+	</div>
+	<br>
+	<div class="row">
+			<div class="col-sm-3">
+				<div class="widget-box transparent">
+					<div class="widget-header widget-header-flat">
+						<h4 class="widget-title lighter">
+							<i class="ace-icon fa fa-tachometer"></i>
+							<a href="{% url 'sensor_detail'  DeviceId '05' %}">Sensor5</a>
+						</h4>
+
+						<div class="widget-toolbar">
+							<a href="#" data-action="collapse">
+								<i class="ace-icon fa fa-chevron-up"></i>
+							</a>
+						</div>
+					</div>
+
+					<div class="widget-body">
+						<div class="widget-main no-padding">
+								   
+									<ul class="list-group list-group-flush">
+									
+										{% for dato in datos %}
+										{% if dato.Sensor == '05' %}
+												<div class="container">
+												<input type="text" value="{{ dato.porcetage }}" id="sensor5" name="sensor5"  class="dial">
+											</div>
+												<li class="list-group-item"><p>Porcentaje: {{ dato.porcetage }}</p></li>
+												<li class="list-group-item"><p>{{ dato.fecha }}</p></li>
+											
+											{% endif %}
+									{% endfor %}
+									</ul>
+						</div><!-- /.widget-main -->
+					</div><!-- /.widget-body -->
+				</div><!-- /.widget-box -->
+			</div><!-- /.col -->
+			<div class="col-sm-3">
+					<div class="widget-box transparent">
+						<div class="widget-header widget-header-flat">
+							<h4 class="widget-title lighter">
+									<i class="ace-icon fa fa-tachometer"></i>
+								<a href="{% url 'sensor_detail'  DeviceId '06' %}">Sensor6</a>
+							</h4>
+		
+							<div class="widget-toolbar">
+								<a href="#" data-action="collapse">
+									<i class="ace-icon fa fa-chevron-up"></i>
+								</a>
+							</div>
+						</div>
+		
+						<div class="widget-body">
+							<div class="widget-main no-padding">
+									   
+										<ul class="list-group list-group-flush">
+										
+											{% for dato in datos %}
+											{% if dato.Sensor == '06' %}
+													<div class="container">
+													<input type="text" value="{{ dato.porcetage }}" id="sensor6" name="sensor6" class="dial">
+												</div>
+													<li class="list-group-item"><p>Porcentaje: {{ dato.porcetage }}</p></li>
+													<li class="list-group-item"><p>{{ dato.fecha }}</p></li>
+												
+												{% endif %}
+										{% endfor %}
+										</ul>
+							</div><!-- /.widget-main -->
+						</div><!-- /.widget-body -->
+					</div><!-- /.widget-box -->
+			</div><!-- /.col -->
+			<div class="col-sm-3">
+					<div class="widget-box transparent">
+						<div class="widget-header widget-header-flat">
+							<h4 class="widget-title lighter">
+									<i class="ace-icon fa fa-tachometer"></i>
+								<a href="{% url 'sensor_detail'  DeviceId '07' %}">Sensor7</a>
+							</h4>
+		
+							<div class="widget-toolbar">
+								<a href="#" data-action="collapse">
+									<i class="ace-icon fa fa-chevron-up"></i>
+								</a>
+							</div>
+						</div>
+		
+						<div class="widget-body">
+							<div class="widget-main no-padding">
+									   
+										<ul class="list-group list-group-flush">
+										
+											{% for dato in datos %}
+											{% if dato.Sensor == '07' %}
+													<div class="container">
+													<input type="text" value="{{ dato.porcetage }}" id="sensor7" name="sensor7" class="dial">
+												</div>
+													<li class="list-group-item"><p>Porcentaje: {{ dato.porcetage }}</p></li>
+													<li class="list-group-item"><p>{{ dato.fecha }}</p></li>
+												
+												{% endif %}
+										{% endfor %}
+										</ul>
+							</div><!-- /.widget-main -->
+						</div><!-- /.widget-body -->
+					</div><!-- /.widget-box -->
+			</div><!-- /.col -->
+			<div class="col-sm-3">
+					<div class="widget-box transparent">
+						<div class="widget-header widget-header-flat">
+							<h4 class="widget-title lighter">
+								<i class="ace-icon fa fa-tachometer"></i>
+								<a href="{% url 'sensor_detail'  DeviceId '08' %}">Sensor8</a>
+							</h4>
+		
+							<div class="widget-toolbar">
+								<a href="#" data-action="collapse">
+									<i class="ace-icon fa fa-chevron-up"></i>
+								</a>
+							</div>
+						</div>
+		
+						<div class="widget-body">
+							<div class="widget-main no-padding">
+									   
+										<ul class="list-group list-group-flush">
+										
+											{% for dato in datos %}
+											{% if dato.Sensor == '08' %}
+													<div class="container">
+													<input type="text" value="{{ dato.porcetage }}" id="sensor8" name="sensor8" class="dial">
+												</div>
+													<li class="list-group-item"><p>Porcentaje: {{ dato.porcetage }}</p></li>
+													<li class="list-group-item"><p>{{ dato.fecha }}</p></li>
+												
+												{% endif %}
+										{% endfor %}
+										</ul>
+							</div><!-- /.widget-main -->
+						</div><!-- /.widget-body -->
+					</div><!-- /.widget-box -->
+			</div><!-- /.col -->
+	</div>
+		 
+	<script src="/static/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/static/js/jquery.knob.js" type="text/javascript" charset="utf-8"></script>
+	          
+	<script>
+
+	jQuery(document).ready(function ($) {
+
+
+		$('.dial').knob({
+			'min': 0,
+				'max': 100,
+				"width":180,
+				"heigth":180,
+				'step': 1,
+				'readOnly': false,
+				'linecap': 'round',
+				'displayInput': true,
+				'displayPrevious': false,
+		});
+
+			$('#sensor1').trigger('configure', {
+				'draw': function (v) {
+					v=parseInt(document.getElementById('sensor1').value);
+					if (v < 30 ) {
+						this.o.fgColor='#F05C3C';
+						$("#sensor1").css("color", "#F05C3C");
+					}
+				},
+				'format': function (v) {return v + ' %';}
+			});
+		    $('#sensor1').trigger('change');
+			$('#sensor2').trigger('configure', {
+				'draw': function (v) {
+					v=parseInt(document.getElementById('sensor2').value);
+					if (v < 30 ) {
+						this.o.fgColor='#F05C3C';
+						$("#sensor2").css("color", "#F05C3C");
+					}
+				},
+				'format': function (v) {return v + ' %';}
+			});
+		    $('#sensor2').trigger('change');
+			$('#sensor3').trigger('configure', {
+				'draw': function (v) {
+					v=parseInt(document.getElementById('sensor3').value);
+					if (v < 30 ) {
+						this.o.fgColor='#F05C3C';
+						$("#sensor3").css("color", "#F05C3C");
+					}
+				},
+				'format': function (v) {return v + ' %';}
+			});
+		    $('#sensor3').trigger('change');
+			$('#sensor4').trigger('configure', {
+				'draw': function (v) {
+					v=parseInt(document.getElementById('sensor4').value);
+					if (v < 30 ) {
+						this.o.fgColor='#F05C3C';
+						$("#sensor4").css("color", "#F05C3C");
+					}
+				},
+				'format': function (v) {return v + ' %';}
+			});
+		    $('#sensor4').trigger('change');
+			$('#sensor5').trigger('configure', {
+				'draw': function (v) {
+					v=parseInt(document.getElementById('sensor5').value);
+					if (v < 30 ) {
+						this.o.fgColor='#F05C3C';
+						$("#sensor5").css("color", "#F05C3C");
+					}
+				},
+				'format': function (v) {return v + ' %';}
+			});
+		    $('#sensor5').trigger('change');
+			$('#sensor6').trigger('configure', {
+				'draw': function (v) {
+					v=parseInt(document.getElementById('sensor6').value);
+					if (v < 30 ) {
+						this.o.fgColor='#F05C3C';
+						$("#sensor6").css("color", "#F05C3C");
+					}
+				},
+				'format': function (v) {return v + ' %';}
+			});
+		    $('#sensor6').trigger('change');
+			$('#sensor7').trigger('configure', {
+				'draw': function (v) {
+					v=parseInt(document.getElementById('sensor7').value);
+					if (v < 30 ) {
+						this.o.fgColor='#F05C3C';
+						$("#sensor7").css("color", "#F05C3C");
+					}
+				},
+				'format': function (v) {return v + ' %';}
+			});
+		    $('#sensor7').trigger('change');
+			$('#sensor8').trigger('configure', {
+				'draw': function (v) {
+					v=parseInt(document.getElementById('sensor8').value);
+					if (v < 30 ) {
+						this.o.fgColor='#F05C3C';
+						$("#sensor8").css("color", "#F05C3C");
+					}
+				},
+				'format': function (v) {
+					return v + ' %';
+				}
+			});
+		    $('#sensor8').trigger('change');
+		  
+		});
+
+	</script>
+	<script type="text/javascript" >
+		function actualizar(){location.reload(true);}
+	//Función para actualizar cada 4 segundos(4000 milisegundos)
+	  setInterval("actualizar()",20000);
+
+	</script>
+{% else %}
+<p>No tiene permisos para ver reportes</p>
+{% endif %}
+{% endblock %}
+

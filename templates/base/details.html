@@ -1,0 +1,45 @@
+{% extends 'base/base.html' %}
+{% block content %}
+{% if perms.loginapp.pueden_ver_dispositivos %}
+<div class="container">
+	<div class="row">
+		<div class="col-sm">
+			<div class="card" style="width: 20rem;" >
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th scope="col">Device ID</th>
+						<th scope="col">Sucursal ID</th>
+						<th scope="col">Fridge</th>
+						<th scope="col">Fridge Door</th>
+						<th scope="col">Tier</th>
+						<th scope="col">Sensor</th>
+						<th scope="col" >titulo1 </th>
+						<th scope="col" >titulo2</th>
+					</tr>
+				</thead>
+			  <tbody>
+			  	{% for dat in dispos %}
+				    <tr>
+				      <td><a href = "/disp/{{ dat.deviceID }}">{{dat.deviceID}}</a></td>
+				      <td>{{dat.sucursalId}} </td>
+				      <td>{{dat.fridge}} </td>
+				      <td>{{dat.fridge_door}} </td>
+				      <td>{{dat.tier}} </td>
+				      <th>{{dat.sensor}} </th>
+				      <th>a</th>
+				      <th>b</th>
+				    </tr>
+				{% endfor %}
+			    
+			  </tbody>
+			</table>
+			</div>
+		</div>
+	</div>
+</div>
+{% else %}
+<p>No tiene permisos para ver dispositivos, contacte con el administrador.</p>
+{% endif %}
+
+{% endblock %}
